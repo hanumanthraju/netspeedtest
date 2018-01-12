@@ -4,7 +4,18 @@ var speedTest=require('./index');
 
 const server = new Hapi.Server();
 
-server.connection({ "host": "localhost", "port": 5000 });
+server.connection(
+    { 
+        host: "localhost", 
+        port: 5000, 
+        routes: {
+            cors: {
+                origin: ['*'],
+                additionalHeaders: ["Accept", "Authorization", "Content-Type", "If-None-Match", "Accept-language"]
+            }
+        }
+    }
+);
 
 server.route({
     method: "GET",
