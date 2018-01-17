@@ -6,7 +6,7 @@ const server = new Hapi.Server();
 //var server = new Hapi.Server(+process.env.PORT, '0.0.0.0');
 server.connection(
     { 
-        host: process.env.HOST || "localhost", 
+        host: process.env.HOST || "0.0.0.0", 
         port: process.env.PORT || 9001, 
         routes: {
             cors: {
