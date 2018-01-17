@@ -2,12 +2,12 @@ const Hapi = require("hapi");
 
 var speedTest=require('./index');
 
-//const server = new Hapi.Server();
-var server = new Hapi.Server(+process.env.PORT, '0.0.0.0');
+const server = new Hapi.Server();
+//var server = new Hapi.Server(+process.env.PORT, '0.0.0.0');
 server.connection(
     { 
-        //host: "localhost", 
-        //port: 5000, 
+        host: "localhost", 
+        port: process.env.PORT || 9001, 
         routes: {
             cors: {
                 origin: ['*'],
